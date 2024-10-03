@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <title>Copy Tab URLs</title>
+    <script src="popup.js" defer></script>
+    <style>
+      body {
+        margin: none;
+      }
+
+      kbd {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        background-color: #F3F4F6;
+        color: #1F2937;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border-width: 1px;
+        border-color: #E5E7EB;
+        margin: .5em;
+      }
+      
+      table {
+        width: 100%;
+      }
+      
+      tr {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5em 1em;
+      }
+      
+      .header-row {
+        /* apply a divider between descriptor and controls; */
+        border-bottom-color: black;
+      }
+
+      .row {
+        padding-top: .5em;
+        padding-bottom: .5em;
+      }
+      .section {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        height: 250px;
+      }
+
+      .subsection {
+        display: flex;
+        padding: 0.1em 0.5em;
+        align-items: center;
+      }
+
+      .table-row {
+        justify-content: space-around;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <table>
+        <tr class="header-row">
+          <td>Copy selected tabs with</td><td><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>Y</kbd></td> 
+        </tr>
+        <tr>
+          <td>Divider</td>
+          <td>
+              <select id="divider-select">
+                <option value="1">New line</option>
+                <option value="2">Comma</option>
+                <option value="3">Semi-colon</option>
+                <option value="4">Bullet point</option>
+              </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

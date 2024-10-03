@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Copy Tab URLs",
+  "version": "1.0",
+  "description": "Copy URLs of all selected tabs.",
+  "permissions":  [
+    "activeTab",
+    "tabs",
+    "storage",
+    "commands",
+    "clipboardWrite",
+    "scripting"
+  ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/bhicon.svg",
+        "48": "icons/bhicon.svg",
+        "128": "icons/bhicon.svg"
+      }
+    },
+    "icons": {
+      "16": "icons/bhicon.svg",
+      "48": "icons/bhicon.svg",
+      "128": "icons/bhicon.svg"
+    },
+    "commands": {
+      "copy_tab_urls": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Y",
+          "mac": "Command+Shift+Y"
+        },
+        "description": "Copy URLs of selected tabs"
+      }
+    },
+    "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+      }
+    ]
+  }
+
+  
