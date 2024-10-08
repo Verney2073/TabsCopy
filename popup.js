@@ -25,11 +25,31 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const selectElement = document.getElementById('divider-select');
+  console.log("domContent loaded")
+
+  // Retrieve the stored divider value from chrome.storage.local
+  chrome.storage.local.get('divider', function(data) {
+    if (chrome.runtime.lastError) {
+      console.error('Error retrieving divider:', chrome.runtime.lastError);
+    } else {
+      const storedDivider = data.divider;
+      console.log("Stored divider:", storedDivider);
+
+      if (selectElement && storedDivider !== undefined) {
+        const matchingOption = Array
+          .from(selectElement.options)
+          .find(option => option.value == storedDivider)
+        if (matchingOption) {
+          matchingOption.selected = true;
+        }
+      }
+    }
+  });
 
   if (selectElement) {
     selectElement.addEventListener('change', function() {
       const selectedOption = selectElement.value;
-      console.log("divider selected", selectedOption); // This will log the value of the selected option
+      console.log("divider selected", selectedOption);
       chrome.runtime.sendMessage({ action: 'dividerSelected', divider: selectedOption });
     });
   }
