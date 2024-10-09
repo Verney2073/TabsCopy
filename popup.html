@@ -6,6 +6,9 @@
     <style>
       body {
         margin: none;
+        background-color: #F3F4F6;
+        width: 200px;
+        height: 200px;
       }
 
       kbd {
@@ -24,62 +27,47 @@
         margin: .5em;
       }
       
-      table {
+      .main-section {
         width: 100%;
-      }
-      
-      tr {
+        height: 100%;
         display: flex;
-        justify-content: space-between;
-        margin: 0.5em 1em;
+        flex-direction: column;
+        justify-content: space-around;
       }
       
       .header-row {
-        /* apply a divider between descriptor and controls; */
-        border-bottom-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px black; 
       }
 
       .row {
-        padding-top: .5em;
-        padding-bottom: .5em;
-      }
-      .section {
         display: flex;
-        flex-direction: column;
-        width: 250px;
-        height: 250px;
-      }
-
-      .subsection {
-        display: flex;
-        padding: 0.1em 0.5em;
         align-items: center;
-      }
-
-      .table-row {
         justify-content: space-around;
       }
-
     </style>
   </head>
+
   <body>
-    <div class="section">
-      <table>
-        <tr class="header-row">
-          <td>Copy selected tabs with</td><td><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>Y</kbd></td> 
-        </tr>
-        <tr>
-          <td>Divider</td>
-          <td>
-              <select id="divider-select">
-                <option value="\n">New line</option>
-                <option value=", ">Comma</option>
-                <option value="; ">Semi-colon</option>
-                <option value="\n• ">Bullet point</option>
-              </select>
-          </td>
-        </tr>
-      </table>
+    <div class="main-section">
+      <div class="header-row">
+        <p>Copy selected tabs with</p>
+        <p><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>Y</kbd></p> 
+      </div>
+      <div class="row">
+        <div>Divider</div>
+        <div>
+            <select id="divider-select">
+              <option value="\n">New line</option>
+              <option value=", ">Comma</option>
+              <option value="; ">Semi-colon</option>
+              <option value="\n• ">Bullet point</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
